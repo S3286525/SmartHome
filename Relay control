@@ -1,0 +1,19 @@
+# Running in realtime, can turn on/off light via relay control
+
+# Import Raspberry Pi GPIO pin functionality
+import RPi.GPIO as GPIO
+
+# Set up to use GPIO pin numbers instead of board pin numbers
+GPIO.setmode(BCM)
+
+# Setup GPIO pin to be used to turn relay on/off
+pin = 16
+
+# Assign the GPIO pin as the output
+GPIO.setup(pin, OUT)
+
+# "HIGH" will turn on relay, resulting in light on
+GPIO.output(pin, HIGH)
+
+# "LOW" will turn off relay, resulting in light off
+GPIO.output(pin, LOW)
