@@ -1,0 +1,28 @@
+## Revised code with proper keyboard functionality
+## to control LED globe
+
+import RPi.GPIO as GPIO
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+pin = 16
+GPIO.setup(pin, GPIO.OUT)
+
+def lightOn():
+    GPIO.output(pin, GPIO.HIGH)
+
+def lightOff():
+    GPIO.output(pin, GPIO.LOW)
+    
+def main():
+    command = input("Enter light on or light off:\n")
+    if(command == "light on"):
+        lightOn()
+        main()
+    elif(command == "light off"):
+        lightOff()
+        main()
+    else:
+        print("Command not recognised. Try again!")
+        main()
+
+main()
